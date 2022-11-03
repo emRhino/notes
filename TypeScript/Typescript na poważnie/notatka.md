@@ -20,7 +20,7 @@ Mamy kolejny błąd typów. Tryb ścisły szybko stanie się Twoim domyślnym wy
 
 
 Uruchomienie servera node + kompilatora ts:
-Tsc --strick nazwa.ts
+Tsc --strickt nazwa.ts
 Node nazwa.js
 
 Ts-node - pakiet, które jednocześnie automatyzuje uruchmienie kompilatora i serwera
