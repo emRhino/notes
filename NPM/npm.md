@@ -1,4 +1,6 @@
-npm install - instalacja pakietów
-npm install -g - razem z flagą -g globalna instalacja pakietów
+npm install ... - instalacja pakietów
+npm install -g ... - razem z flagą -g globalna instalacja pakietów
 
-npx - uruchamianie pakietów, np npx create-react-app
+npm run ... - uruchamianie skryptów zdefiniowanych w package.json
+
+npx ... - uruchamianie pakietów, np npx create-react-app
