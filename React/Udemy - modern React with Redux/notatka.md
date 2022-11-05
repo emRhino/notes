@@ -45,8 +45,15 @@ Inicjalizacja stanu następuje w konstruktorze klasy.
 
 Komponent rozszerzający React.Component zawsze w konstruktorze musi mieć Super(props) - zapewnia to poprawne dziedzicznie wszystkie metoda i atrybutów do twórzonego komponentu.
 
+# 6 - Component Lifecycle Methods
 
-
-
-
+Kolejność egzekucji:
+1. constructor
+2. render
+  * Content visible on screen
+3. componentDidMount - first render on the screen
+  * Sit and wait for updates... (wywołanie po setState) *
+4. componentDidUpdate
+  * Sit and wait until this component is not longer shown *
+5. componentWillUnmount
 
