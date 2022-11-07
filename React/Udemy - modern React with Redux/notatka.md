@@ -49,11 +49,15 @@ Komponent rozszerzający React.Component zawsze w konstruktorze musi mieć Super
 # 6 - Component Lifecycle Methods
 
 Kolejność egzekucji:
-1. constructor
-2. render
+1. constructor - good place to do one-time setup, według konwencji tutaj bez data loading
+2. render - avoid doing anything besides return jsx
   * Content visible on screen
-3. componentDidMount - first render on the screen
+3. componentDidMount - first render on the screen - good place to do data loading
   * Sit and wait for updates... (wywołanie po setState) *
-4. componentDidUpdate
+4. componentDidUpdate - goop place to do more data loading when props/state change
   * Sit and wait until this component is not longer shown *
-5. componentWillUnmount
+5. componentWillUnmount - good place to do cleanup (espacially for non-React stuff, eg. Google maps) - używany sporadycznie
+
+Aktualizacja stanu komponentu wywołuje przerenderowanie komponentu i wszystkich jego dzieci.
+
+Nazwę komponentu dodawać jako klasę do elementu root komponentu.
