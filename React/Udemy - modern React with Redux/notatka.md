@@ -45,8 +45,4 @@ Inicjalizacja stanu następuje w konstruktorze klasy.
 
 Komponent rozszerzający React.Component zawsze w konstruktorze musi mieć Super(props) - zapewnia to poprawne dziedzicznie wszystkie metoda i atrybutów do twórzonego komponentu.
 
-
-
-
-
-
+# 6 - Life cycle methods
