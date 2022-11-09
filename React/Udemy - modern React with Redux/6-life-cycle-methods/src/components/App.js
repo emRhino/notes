@@ -1,5 +1,6 @@
 import React from 'react';
 import SeasonDisplay from './SeassonDisplay';
+import Loader from './Loader';
 
 class App extends React.Component {
 
@@ -44,7 +45,7 @@ class App extends React.Component {
     }
 
     return (
-      <div>Loading...</div>
+      <div><Loader /></div>
     )
   }
 

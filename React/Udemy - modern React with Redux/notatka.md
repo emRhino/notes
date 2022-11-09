@@ -61,3 +61,14 @@ Kolejność egzekucji:
 Aktualizacja stanu komponentu wywołuje przerenderowanie komponentu i wszystkich jego dzieci.
 
 Nazwę komponentu dodawać jako klasę do elementu root komponentu.
+
+Props - wartość default:
+- OR statment - props.message || 'Hello world!'
+- Component.defaultProps = { message: 'Hello world!' }
+
+Należy unikać warunków if else itp w metodzie render
+
+organizacja kodu w plikach:
+Kod typu KomponentConfig czy helper functions powinny znajdować się na górze, deklaracja i ciało funkcji zawsze jako ostatni blok kodu w pliku. Export na końcu.
+
+# 7 - Handling user inputs (forms and events)
