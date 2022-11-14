@@ -72,3 +72,13 @@ organizacja kodu w plikach:
 Kod typu KomponentConfig czy helper functions powinny znajdować się na górze, deklaracja i ciało funkcji zawsze jako ostatni blok kodu w pliku. Export na końcu.
 
 # 7 - Handling user inputs (forms and events)
+
+controlled i uncontrolled elemenets
+^^^^^^^^^^^^
+W podejściu reactowym chcemy mieć jedno scenatralizowane miejsce, z którego czerpiemy informacje, np. nie pobieramy w trakcie działania programu wartości z inputów, inputy same umieszczają swoje dane w stanie.
+
+uncontrolled elem - na jakich temat nie mamy info w stanie
+controlled elem - wszystko w nich w stanie
+
+* dotyczy elementów formularzy (interakcja z userem)
+

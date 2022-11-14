@@ -17,4 +17,3 @@ const arr2 = arr1.map(x => {
     }
 })
 console.log(arr2);
-
