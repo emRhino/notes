@@ -83,7 +83,13 @@ controlled elem - wszystko w nich w stanie
 * dotyczy elementów formularzy (interakcja z userem)
 
 # 8 - making api request
+Axios - konfiguracja axios może być w zewnętrznym katalogu "api"
 
 ## good practice:
 3rd part library import above component which used them
 
+Key prop - renderując listę takich samych elementów np. przy użyciu .map() nalezy do każego elementu dodać unikalne id => key={}
+
+React renderując porównuje elementy i zmienia tylke te, których brakuje lub w których zaszła zmiana (sprawa czy key istnieje, następnie porównuje zawartość)
+
+<!-- TODO: destrukturyazacja obiektu -->
