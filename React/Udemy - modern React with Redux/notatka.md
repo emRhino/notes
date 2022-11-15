@@ -82,3 +82,8 @@ controlled elem - wszystko w nich w stanie
 
 * dotyczy elementów formularzy (interakcja z userem)
 
+# 8 - making api request
+
+## good practice:
+3rd part library import above component which used them
+
