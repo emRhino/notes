@@ -93,3 +93,70 @@ Key prop - renderując listę takich samych elementów np. przy użyciu .map() n
 React renderując porównuje elementy i zmienia tylke te, których brakuje lub w których zaszła zmiana (sprawa czy key istnieje, następnie porównuje zawartość)
 
 <!-- TODO: destrukturyazacja obiektu -->
+
+# 9 - Refs
+Refs - ekwiwalent document.getElementBy* - w reakcie nie pobieramy elementów z DOMu, zamiast tego pobieramy reprezentację z virtualDOM pryz użyciu Refs
+
+# 10 - Hooks
+
+Uzywają hooków bazuje wyłącznie na componentach funkcyjnych. Funkcje będące helperami piszemy na poczatku componentu.
+
+State w hooks:
+import React, *{ useState }* from 'react';
+
+inicjalizacja stanu:
+const [*exampleState*, *SetExampleState*] = setState(*initial val*)
+
+^^^^^^^^^^^
+tutaj nastąpiła destrukturyzacja tabeli, przykład:
+
+const color = ["red", "blue"]
+
+const [firstColor, secondColor] = color
+
+do stałej firstColor zostaje przypisane "red", do stałej secondColor zostaje przypisane "blue"
+
+const [activeItem, setActiveItem] = useState(null)
+
+
+                |   CLASS COMPONENT                      |   FUNCTION COMPONENT
+________________|________________________________________|________________________________
+                |                                        |
+initialization  |   state = { activeIndex = null }       |   useState(null)
+                |                                        |
+reference       |   this.state.activeIndex               |   activeIndex
+                |                                        |
+update          |   this.setState({ activeIndex: 1 })    |   setActiveIndex(1)
+
+## UseEffect
+
+użycie: import React, { useEffect } from 'react';
+
+zapis:
+
+const Component = () => {
+
+  useEffect(() => {
+    ...
+  }, *);
+
+  return <h1>...</h1>
+}
+
+* w miejśću gwiazdki, jako callback funkcji może podać 3 możliwe wartości (zależy od nich kiedy useEffect zostanie wykonany):
+  - *nic* jeżeli nie podamy żadne argumentu to useEffect odpali się po zainicjowaniu componentu i w po kazdym przerenderowaniu
+  - *[]* jezeli podamy pustą tablice to useEffect odpali się wyłącznie raz po zainicjowaniu componentu
+  - *[data]* odpali się po zainicjowaniu componentu oraz zawsze po renderze o ile data ulegnie zmianie
+
+API call wewnatrz useEffect:
+
+useEffect(() => {
+  const req = async () => {
+    await axios.get('...')
+  }
+  req();
+})
+
+useEffect posiada właściwość posprzątania tzw. clean up function. Clean up funkcji zapisuje sie poprzez zwrócenie arrow function w useEffect.
+
+Cleanup function wywoływana jest zawsze przed nowym przerenderowaniem componentu.

@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageCard from './ImageCard';
 
 class ImageList extends React.Component {
 
@@ -7,8 +8,9 @@ class ImageList extends React.Component {
     }
 
     imagesRend(photos) {
-        return photos.map(({description, urls, id}) => {
-            return <img key={id} src={urls.regular} alt={description} width={300} />
+        return photos.map((photo) => {
+            // return <img key={id} src={urls.regular} alt={description} width={300} />
+            return <ImageCard key={photo.id} image={photo} />
         })
     }
 

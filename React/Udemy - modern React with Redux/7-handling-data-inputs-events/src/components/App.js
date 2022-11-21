@@ -3,6 +3,19 @@ import React from 'react';
 import unsplash from '../api/unsplash';
 import SearchBar from './SearchBar';
 import ImageList from './ImageList';
+import styled from 'styled-components';
+import { Reset } from 'styled-reset';
+import { createGlobalStyle } from 'styled-components';
+
+const Wrapper = styled.div`
+  background: papayawhip;
+`;
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+`
 
 class App extends React.Component {
 
@@ -18,10 +31,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <Wrapper>
+        <Reset />
+        <GlobalStyle />
         <SearchBar onSubmit={this.onSearchSubmit} />
         <ImageList images={this.state.images} />
-      </div>
+      </Wrapper>
     )
   }
 }
