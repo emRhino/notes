@@ -160,3 +160,9 @@ useEffect(() => {
 useEffect posiada właściwość posprzątania tzw. clean up function. Clean up funkcji zapisuje sie poprzez zwrócenie arrow function w useEffect.
 
 Cleanup function wywoływana jest zawsze przed nowym przerenderowaniem componentu.
+
+# Redux
+
+Konwencja:
+Nazwa type pisana wielkimi literami: type: "DELETE_POLICY"
+

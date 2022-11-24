@@ -3,6 +3,7 @@ import Accordions from './Accordions';
 import Search from './Search';
 import Dropdown from './Dropdown';
 import FilterList from './FilterList';
+import Translate from './Translate';
 
 const quiestions = [
   {
@@ -97,14 +98,30 @@ const list = [
   }
 ]
 
+const langs = [
+  {
+    label: "Afrikaanas",
+    value: "af"
+  },
+  {
+    label: "Arabic",
+    value: "ar"
+  },
+  {
+    label: "Hindi",
+    value: "hi"
+  },
+]
+
 function App() {
   return (
     <div className="App">
-      <FilterList list={ list } />
+      <Translate langs={langs} />
     </div>
   );
 }
 
 export default App;
 
+// <FilterList list={ list } />
 // <Dropdown options={options} heading="Wybierz kolor:">Hello World!</Dropdown>
