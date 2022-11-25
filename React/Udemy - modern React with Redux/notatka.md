@@ -166,3 +166,28 @@ Cleanup function wywoływana jest zawsze przed nowym przerenderowaniem component
 Konwencja:
 Nazwa type pisana wielkimi literami: type: "DELETE_POLICY"
 
+użycie Redux w react za pomocą biblioteki React-Redux,
+npm install react-redux, redux
+
+React-Redux wprowadza dwa nowe komponenty:
+- Provider
+- Connect
+
+Struktura plików, obok katalogu "components" należy dodać:
+- actions
+- reducers
+
+w folderze Actions dodajemy plik index.js w nim definiujemy poszczególne akcje według scehmatu:
+
+export const action = () => {
+  return {
+    type: 'TYPE',
+    payload: ...
+  }
+}
+
+import actions from './actions'
+Webpack domyślnie pobiera index.js jeżeli nie znajdzie pasującego pliku
+
+Reducers
+
