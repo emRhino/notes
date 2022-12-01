@@ -1,11 +1,8 @@
-import { combineReducers } from 'redux';
-
-const blogpostReducers = () => {
-    return [
-        { title: 'bla', desc: 'opis test', author: 'John Doe' }
-    ]
-}
+import { combineReducers } from "redux";
+import postsReducer from './postsReducer';
+import userMetaReducer from './userMetaReducer';
 
 export default combineReducers({
-    blogpost: blogpostReducers
-})
+    posts: postsReducer,
+    user: userMetaReducer
+});

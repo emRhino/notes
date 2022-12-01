@@ -189,5 +189,8 @@ export const action = () => {
 import actions from './actions'
 Webpack domyślnie pobiera index.js jeżeli nie znajdzie pasującego pliku
 
-Reducers
+Rules of Reducers
+Reducer musi zwrócić dowolną wartosć z wyjątkiem undefined
+
+
 
