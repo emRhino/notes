@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPostsandUsers } from '../actions';
-import UserMeta from './UserMeta';
+import { fetchPosts } from '../actions';
 
 class PostList extends React.Component {
   componentDidMount() {
-    this.props.fetchPostsandUsers();
+    this.props.fetchPosts();
   }
 
   renderList() {
@@ -17,7 +16,6 @@ class PostList extends React.Component {
             <div className="description">
               <h2>{post.title}</h2>
               <p>{post.body}</p>
-              <small><UserMeta userID={ post.userId } /></small>
             </div>
           </div>
         </div>
@@ -31,12 +29,10 @@ class PostList extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    posts: state.posts
-  };
+  return { posts: state.posts };
 };
 
 export default connect(
   mapStateToProps,
-  { fetchPostsandUsers }
+  { fetchPosts }
 )(PostList);

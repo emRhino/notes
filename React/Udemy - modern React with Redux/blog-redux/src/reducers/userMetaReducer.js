@@ -1,8 +1,8 @@
-const userMetaReducer = (state = '', action) => {
+const userMetaReducer = (state = [], action) => {
     switch (action.type) {
 
         case 'FETCH_USER_META':
-            return [action.payload]
+            return [...state, action.payload]
 
         default:
             return state

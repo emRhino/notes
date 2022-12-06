@@ -1,25 +1,21 @@
-import React from'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUserMeta } from '../actions';
 
 class UserMeta extends React.Component {
 
-    componentDidMount() {
-        // console.log(this.props.userId);
-        this.props.fetchUserMeta(this.props.userId);
-    }
-
     render() {
-        // console.log(this.props.user);
-        return (
-            <small>{ this.props.userName }</small>
-        )
-    }
+        const { user } = this.props;
+    
+        if (!user) {
+          return null;
+        }
+    
+        return <div className="header">{user.name}</div>;
+      }
 }
 
-const mapStateToProps = (state) => {
-    console.log(state);
-    return {userName: state.user}
+const mapStateToProps = (state, ownProps) => {
+    return {user: state.users.find(user => user.id === ownProps.userID)}
 }
 
-export default connect(mapStateToProps, { fetchUserMeta })(UserMeta);
+export default connect(mapStateToProps)(UserMeta);
