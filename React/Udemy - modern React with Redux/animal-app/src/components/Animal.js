@@ -1,23 +1,17 @@
 import React from 'react';
 
+import bird from './bird.svg';
+import cat from './cat.svg';
+import cow from './cow.svg';
+import dog from './dog.svg';
+import gator from './gator.svg';
+import heart from './heart.svg';
+import horse from './horse.svg';
+
 const Animal = ({type}) => {
-    console.log(type);
-    const chooseAnimal = () => {
-        switch (type) {
-            case 'dog':
-                return 'rdoooogew';
-                break;
-            case 'cat':
-                return 'caaaat';
-                break;
-            default:
-                return 'blaa';
-                break;
-        }
-    }
     return (
         <div>
-            { chooseAnimal() }
+            <img src={ type } />
         </div>
     );
 
