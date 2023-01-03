@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Animal from './Animal';
 
 const randomAnimal = () => {
-  const animal = ['dog', 'cat', 'gator', 'giraffee', 'cow', 'bird'];
+  const animal = ['bird', 'cat', 'cow', 'dog', 'gator', 'horse'];
   return animal[Math.floor(Math.random() * animal.length)];
 }
 
@@ -17,12 +17,10 @@ function App() {
       return <Animal type={animal} key={index} />;
     })
 
-
-  
-
   return (
     <div className="App">
       <button onClick={handleClick}>Add animal</button>
+      <br />
       { renderAnimals }
     </div>
   );
