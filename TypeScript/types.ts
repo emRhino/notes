@@ -59,3 +59,30 @@ const add = (a: number, b: number): number => {
 };
 
 const cars = [['asd'], [123]];
+
+interface Carrr {
+  summary(): string;
+}
+
+const oldCivic = {
+  name: 'Honda',
+  year: 2000,
+  broken: true,
+  summary() {
+    return `This car is ${this.name}`;
+  },
+};
+
+const drink = {
+  alko: 20,
+  name: 'insh',
+  summary() {
+    return `This is ${this.name}`;
+  },
+};
+
+const printItem = (item: Carrr): void => {
+  console.log(item.summary());
+};
+
+printItem(oldCivic);
