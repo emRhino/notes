@@ -1,17 +1,16 @@
-const BookCreate = (props) => {
+import BookShow from "./BookShow";
 
+const BookCreate = (props) => {
   const sub = () => {
-    props.updateFn({"id":2,"title":"Dark Tower"})
-  }
+    props.addBook(...props.books, { id: 2, title: "Dark Tower" });
+  };
 
   return (
     <div>
-      <form>
-        <input type="text" />
-        <button onClick={sub}>Submit</button>
-      </form>
+      <input type="text" />
+      <button onClick={sub}>Submit</button>
     </div>
-  )
-}
+  );
+};
 
 export default BookCreate;
