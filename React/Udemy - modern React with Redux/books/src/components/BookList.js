@@ -2,24 +2,17 @@ import BookShow from './BookShow';
 import BookEdit from './BookEdit';
 
 const BookList = (props) => {
-
   const { bookList } = props;
 
-  const rend = bookList.map(book => {
+  const rend = bookList.map((book) => {
     return (
-      <div>
-        {book.title}
+      <div key={book.id}>
+        <BookShow title={book.title} id={book.id} />
       </div>
-    )
-  })
+    );
+  });
 
-  return (
-    <div>
-      <ul>
-        { rend }
-      </ul>
-    </div>
-  )
-}
+  return <div>{rend}</div>;
+};
 
 export default BookList;

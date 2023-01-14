@@ -1,4 +1,5 @@
 Komponenty:
+
 - funkcyjne
 - klasowe
 - hooki
@@ -18,6 +19,7 @@ lub jako dziecko komponentu:
 Kod JS zawsze w nawiasach klamrowych - {}
 
 atrybuty w komponentach JSX to propsy, zapis:
+
 - liczba: {36}
 - tekst: "Hello world"
 - tablica: {[1,2,3]}
@@ -35,27 +37,34 @@ dla atrybutów zdefiniowanych jako true wystarczy napisać <MyComponent spellChe
 Flow (komunikacja propsów z góry na dół, od rodziców w dół do dzieci / dziedziczenie)
 
 # 5 - State
+
 Stan dostępny tylko dla komponentów klasyych oraz hooków.
 Stan jest to zwykły obiekt JS.
 Aktualizacja stanu powoduje przerenderowanie komponentu
 Stan musi być zadekalowany w momencie tworzeniu komponentu
-*Stan powinien być aktualizowany (mutowany) przez metodę setState*
+_Stan powinien być aktualizowany (mutowany) przez metodę setState_
 
 Inicjalizacja stanu następuje w konstruktorze klasy.
 
 Komponent rozszerzający React.Component zawsze w konstruktorze musi mieć Super(props) - zapewnia to poprawne dziedzicznie wszystkie metoda i atrybutów do twórzonego komponentu.
 
-
 # 6 - Component Lifecycle Methods
 
 Kolejność egzekucji:
+
 1. constructor - good place to do one-time setup, według konwencji tutaj bez data loading
 2. render - avoid doing anything besides return jsx
-  * Content visible on screen
+
+- Content visible on screen
+
 3. componentDidMount - first render on the screen - good place to do data loading
-  * Sit and wait for updates... (wywołanie po setState) *
+
+- Sit and wait for updates... (wywołanie po setState) \*
+
 4. componentDidUpdate - goop place to do more data loading when props/state change
-  * Sit and wait until this component is not longer shown *
+
+- Sit and wait until this component is not longer shown \*
+
 5. componentWillUnmount - good place to do cleanup (espacially for non-React stuff, eg. Google maps) - używany sporadycznie
 
 Aktualizacja stanu komponentu wywołuje przerenderowanie komponentu i wszystkich jego dzieci.
@@ -63,6 +72,7 @@ Aktualizacja stanu komponentu wywołuje przerenderowanie komponentu i wszystkich
 Nazwę komponentu dodawać jako klasę do elementu root komponentu.
 
 Props - wartość default:
+
 - OR statment - props.message || 'Hello world!'
 - Component.defaultProps = { message: 'Hello world!' }
 
@@ -80,12 +90,14 @@ W podejściu reactowym chcemy mieć jedno scenatralizowane miejsce, z którego c
 uncontrolled elem - na jakich temat nie mamy info w stanie
 controlled elem - wszystko w nich w stanie
 
-* dotyczy elementów formularzy (interakcja z userem)
+- dotyczy elementów formularzy (interakcja z userem)
 
 # 8 - making api request
+
 Axios - konfiguracja axios może być w zewnętrznym katalogu "api"
 
 ## good practice:
+
 3rd part library import above component which used them
 
 Key prop - renderując listę takich samych elementów np. przy użyciu .map() nalezy do każego elementu dodać unikalne id => key={}
@@ -95,17 +107,18 @@ React renderując porównuje elementy i zmienia tylke te, których brakuje lub w
 <!-- TODO: destrukturyazacja obiektu -->
 
 # 9 - Refs
-Refs - ekwiwalent document.getElementBy* - w reakcie nie pobieramy elementów z DOMu, zamiast tego pobieramy reprezentację z virtualDOM pryz użyciu Refs
+
+Refs - ekwiwalent document.getElementBy\* - w reakcie nie pobieramy elementów z DOMu, zamiast tego pobieramy reprezentację z virtualDOM pryz użyciu Refs
 
 # 10 - Hooks
 
 Uzywają hooków bazuje wyłącznie na componentach funkcyjnych. Funkcje będące helperami piszemy na poczatku componentu.
 
 State w hooks:
-import React, *{ useState }* from 'react';
+import React, _{ useState }_ from 'react';
 
 inicjalizacja stanu:
-const [*exampleState*, *SetExampleState*] = setState(*initial val*)
+const [*exampleState*, *SetExampleState*] = setState(_initial val_)
 
 ^^^^^^^^^^^
 tutaj nastąpiła destrukturyzacja tabeli, przykład:
@@ -118,15 +131,15 @@ do stałej firstColor zostaje przypisane "red", do stałej secondColor zostaje p
 
 const [activeItem, setActiveItem] = useState(null)
 
-
                 |   CLASS COMPONENT                      |   FUNCTION COMPONENT
-________________|________________________________________|________________________________
-                |                                        |
-initialization  |   state = { activeIndex = null }       |   useState(null)
-                |                                        |
-reference       |   this.state.activeIndex               |   activeIndex
-                |                                        |
-update          |   this.setState({ activeIndex: 1 })    |   setActiveIndex(1)
+
+******\_\_\_\_******|******************\_\_\_\_******************|**************\_\_\_\_**************
+| |
+initialization | state = { activeIndex = null } | useState(null)
+| |
+reference | this.state.activeIndex | activeIndex
+| |
+update | this.setState({ activeIndex: 1 }) | setActiveIndex(1)
 
 ## UseEffect
 
@@ -136,25 +149,25 @@ zapis:
 
 const Component = () => {
 
-  useEffect(() => {
-    ...
-  }, *);
+useEffect(() => {
+...
+}, \*);
 
-  return <h1>...</h1>
+return <h1>...</h1>
 }
 
-* w miejśću gwiazdki, jako callback funkcji może podać 3 możliwe wartości (zależy od nich kiedy useEffect zostanie wykonany):
-  - *nic* jeżeli nie podamy żadne argumentu to useEffect odpali się po zainicjowaniu componentu i w po kazdym przerenderowaniu
-  - *[]* jezeli podamy pustą tablice to useEffect odpali się wyłącznie raz po zainicjowaniu componentu
-  - *[data]* odpali się po zainicjowaniu componentu oraz zawsze po renderze o ile data ulegnie zmianie
+- w miejśću gwiazdki, jako callback funkcji może podać 3 możliwe wartości (zależy od nich kiedy useEffect zostanie wykonany):
+  - _nic_ jeżeli nie podamy żadne argumentu to useEffect odpali się po zainicjowaniu componentu i w po kazdym przerenderowaniu
+  - _[]_ jezeli podamy pustą tablice to useEffect odpali się wyłącznie raz po zainicjowaniu componentu
+  - _[data]_ odpali się po zainicjowaniu componentu oraz zawsze po renderze o ile data ulegnie zmianie
 
 API call wewnatrz useEffect:
 
 useEffect(() => {
-  const req = async () => {
-    await axios.get('...')
-  }
-  req();
+const req = async () => {
+await axios.get('...')
+}
+req();
 })
 
 useEffect posiada właściwość posprzątania tzw. clean up function. Clean up funkcji zapisuje sie poprzez zwrócenie arrow function w useEffect.
@@ -170,20 +183,22 @@ użycie Redux w react za pomocą biblioteki React-Redux,
 npm install react-redux, redux
 
 React-Redux wprowadza dwa nowe komponenty:
+
 - Provider
 - Connect
 
 Struktura plików, obok katalogu "components" należy dodać:
+
 - actions
 - reducers
 
 w folderze Actions dodajemy plik index.js w nim definiujemy poszczególne akcje według scehmatu:
 
 export const action = () => {
-  return {
-    type: 'TYPE',
-    payload: ...
-  }
+return {
+type: 'TYPE',
+payload: ...
+}
 }
 
 import actions from './actions'
@@ -192,5 +207,4 @@ Webpack domyślnie pobiera index.js jeżeli nie znajdzie pasującego pliku
 Rules of Reducers
 Reducer musi zwrócić dowolną wartosć z wyjątkiem undefined
 
-
-
+cd

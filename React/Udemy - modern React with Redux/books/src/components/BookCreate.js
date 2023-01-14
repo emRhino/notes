@@ -1,17 +1,21 @@
-const BookCreate = (props) => {
+import { useState } from 'react';
 
-  const sub = () => {
-    props.updateFn({"id":2,"title":"Dark Tower"})
-  }
+const BookCreate = ({ addBook }) => {
+  const [searchPhrase, setSearchPhrase] = useState('');
+
+  const addBk = () => {
+    addBook(searchPhrase);
+  };
+  const changeInput = (e) => {
+    setSearchPhrase(e.target.value);
+  };
 
   return (
     <div>
-      <form>
-        <input type="text" />
-        <button onClick={sub}>Submit</button>
-      </form>
+      <input onChange={changeInput} type='text' value={searchPhrase} />
+      <button onClick={addBk}>Submit</button>
     </div>
-  )
-}
+  );
+};
 
 export default BookCreate;
