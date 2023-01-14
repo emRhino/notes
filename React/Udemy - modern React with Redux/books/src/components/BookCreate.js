@@ -1,14 +1,19 @@
-import BookShow from "./BookShow";
+import { useState } from "react";
 
-const BookCreate = (props) => {
-  const sub = () => {
-    props.addBook(...props.books, { id: 2, title: "Dark Tower" });
+const BookCreate = ({ addBook }) => {
+  const [searchPhrase, setSearchPhrase] = useState("");
+
+  const addBk = () => {
+    addBook(searchPhrase);
+  };
+  const changeInput = (e) => {
+    setSearchPhrase(e.target.value);
   };
 
   return (
     <div>
-      <input type="text" />
-      <button onClick={sub}>Submit</button>
+      <input onChange={changeInput} type="text" value={searchPhrase} />
+      <button onClick={addBk}>Submit</button>
     </div>
   );
 };
