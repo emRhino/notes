@@ -5,6 +5,7 @@ const BookCreate = ({ addBook }) => {
 
   const addBk = () => {
     addBook(searchPhrase);
+    setSearchPhrase("");
   };
   const changeInput = (e) => {
     setSearchPhrase(e.target.value);

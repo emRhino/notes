@@ -1,14 +1,38 @@
-import BookEdit from './BookEdit';
+import { useState } from "react";
+import BookEdit from "./BookEdit";
 
-const BookShow = ({ title, id }) => {
-  const edit = (id, newTitle) => {};
+const BookShow = ({ title, id, deleteBook, updateBook }) => {
+  const [showEditForm, setShowEditForm] = useState(false);
+
+  const toogleUpdateForm = () => {
+    setShowEditForm(true);
+  };
+
+  const handleClick = () => {
+    deleteBook(id);
+  };
+
+  const closeEditForm = () => {
+    setShowEditForm(!showEditForm);
+  };
 
   return (
     <div>
-      { if ()}
-      <h1>{title}</h1>
-      <button onClick={edit}>Edit</button>
-      <button>Delete</button>
+      <h1>
+        {showEditForm ? (
+          <BookEdit
+            title={title}
+            id={id}
+            updateBook={updateBook}
+            closeEditForm={closeEditForm}
+          />
+        ) : (
+          title
+        )}
+      </h1>
+
+      <button onClick={toogleUpdateForm}>Edit</button>
+      <button onClick={handleClick}>Delete</button>
     </div>
   );
 };
