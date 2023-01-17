@@ -1,6 +1,11 @@
-import styles from '../styles/Home.module.css';
-import '../styles/globals.css';
+import App from "../components/App";
 
-export default function Home() {
-  return <h1 className='text-3xl font-bold underline'>Hello world!</h1>;
-}
+const Home: React.FC = () => {
+  return (
+    <div>
+      <App />
+    </div>
+  );
+};
+
+export default Home;
