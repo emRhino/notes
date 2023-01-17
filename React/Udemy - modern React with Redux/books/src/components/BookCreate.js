@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from 'react';
+import BooksContext from '../context/books';
 
-const BookCreate = ({ addBook }) => {
-  const [searchPhrase, setSearchPhrase] = useState("");
+const BookCreate = () => {
+  const [searchPhrase, setSearchPhrase] = useState('');
+  const { addBook } = useContext(BooksContext);
 
   const addBk = () => {
     addBook(searchPhrase);
-    setSearchPhrase("");
+    setSearchPhrase('');
   };
   const changeInput = (e) => {
     setSearchPhrase(e.target.value);
@@ -13,7 +15,7 @@ const BookCreate = ({ addBook }) => {
 
   return (
     <div>
-      <input onChange={changeInput} type="text" value={searchPhrase} />
+      <input onChange={changeInput} type='text' value={searchPhrase} />
       <button onClick={addBk}>Submit</button>
     </div>
   );

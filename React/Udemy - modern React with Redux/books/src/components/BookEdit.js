@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from 'react';
+import BooksContext from '../context/books';
 
-const BookEdit = ({ title, id, updateBook, closeEditForm }) => {
+const BookEdit = ({ title, id, closeEditForm }) => {
   const [fieldPhrase, setFieldPhrase] = useState(title);
+  const { updateBook } = useContext(BooksContext);
 
   const changeInput = (e) => {
     setFieldPhrase(e.target.value);

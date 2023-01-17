@@ -1,8 +1,10 @@
-import { useState } from "react";
-import BookEdit from "./BookEdit";
+import { useState, useContext } from 'react';
+import BookEdit from './BookEdit';
+import BooksContext from '../context/books';
 
-const BookShow = ({ title, id, deleteBook, updateBook }) => {
+const BookShow = ({ title, id }) => {
   const [showEditForm, setShowEditForm] = useState(false);
+  const { deleteBook, updateBook } = useContext(BooksContext);
 
   const toogleUpdateForm = () => {
     setShowEditForm(true);
@@ -20,12 +22,7 @@ const BookShow = ({ title, id, deleteBook, updateBook }) => {
     <div>
       <h1>
         {showEditForm ? (
-          <BookEdit
-            title={title}
-            id={id}
-            updateBook={updateBook}
-            closeEditForm={closeEditForm}
-          />
+          <BookEdit title={title} id={id} closeEditForm={closeEditForm} />
         ) : (
           title
         )}
