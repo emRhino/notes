@@ -133,7 +133,7 @@ const [activeItem, setActiveItem] = useState(null)
 
                 |   CLASS COMPONENT                      |   FUNCTION COMPONENT
 
-******\_\_\_\_******|******************\_\_\_\_******************|**************\_\_\_\_**************
+**\*\***\_\_\_\_**\*\***|********\*\*********\_\_\_\_********\*\*********|******\*\*******\_\_\_\_******\*\*******
 | |
 initialization | state = { activeIndex = null } | useState(null)
 | |
@@ -208,3 +208,5 @@ Rules of Reducers
 Reducer musi zwrócić dowolną wartosć z wyjątkiem undefined
 
 cd
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
