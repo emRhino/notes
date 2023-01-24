@@ -1,5 +1,7 @@
 import App from "../components/App";
 
-export default function Home() {
+const Home: React.FC = () => {
   return <App />;
-}
+};
+
+export default Home;
