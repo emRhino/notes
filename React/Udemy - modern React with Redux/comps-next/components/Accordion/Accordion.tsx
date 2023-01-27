@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BsQuestion } from "react-icons/bs";
+import { GoChevronRight, GoChevronDown } from "react-icons/go";
 
 const faq = [
   {
@@ -23,19 +23,32 @@ const faq = [
 ];
 
 const Accordion = () => {
-  const [activeQuestion, setActiveQuestion] = useState(0);
+  const [activeQuestion, setActiveQuestion] = useState(-1);
 
   const handleClick = (i: number) => {
-    setActiveQuestion(i);
+    setActiveQuestion((currentActiveQuestion: number): number => {
+      if (currentActiveQuestion === i) {
+        return -1;
+      } else {
+        return i;
+      }
+    });
   };
 
   const renderFaq = faq.map((topic, index) => {
+    const arrow = () =>
+      activeQuestion === index ? (
+        <GoChevronDown className="pr-2" />
+      ) : (
+        <GoChevronRight className="pr-2" />
+      );
     return (
       <div key={topic.id} className="p-2 border-solid border-2 border-black">
         <h2
           onClick={() => handleClick(index)}
-          className="cursor-pointer font-bold py-2"
+          className="cursor-pointer font-bold py-2 flex items-center"
         >
+          {arrow()}
           {topic.ask}
         </h2>
         {activeQuestion === index ? <p>{topic.answer}</p> : null}
