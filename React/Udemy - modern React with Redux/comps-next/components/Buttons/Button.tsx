@@ -14,8 +14,6 @@ export interface ButtonProps {
   className?: string;
 }
 
-type Test = <ButtonProps>;
-
 const Button: React.FC<ButtonProps> = ({
   children,
   primary,

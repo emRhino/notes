@@ -1,5 +1,7 @@
-import Buttons from "./Buttons/Buttons";
+import Route from "./Route/Route";
+import Link from "./Link/Link";
 import Accordion from "./Accordion/Accordion";
+import Buttons from "./Buttons/Buttons";
 import Dropdown from "./Dropdown/Dropdown";
 
 const options = [
@@ -20,8 +22,18 @@ const options = [
 const App: React.FC = () => {
   return (
     <div className="p-6">
-      <Dropdown data={options} />
-      <Dropdown data={options} />
+      <Link to="/accordion">Accordion</Link>
+      <Link to="/buttons">Buttons</Link>
+      <Link to="/dropdown">Dropdown</Link>
+      <Route path="/accordion">
+        <Accordion />
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown data={options} />
+      </Route>
+      <Route path="/buttons">
+        <Buttons />
+      </Route>
     </div>
   );
 };
