@@ -133,7 +133,7 @@ const [activeItem, setActiveItem] = useState(null)
 
                 |   CLASS COMPONENT                      |   FUNCTION COMPONENT
 
-******\_\_\_\_******|******************\_\_\_\_******************|**************\_\_\_\_**************
+**\*\***\_\_\_\_**\*\***|**\*\*\*\***\*\***\*\*\*\***\_\_\_\_**\*\*\*\***\*\***\*\*\*\***|**\*\***\*\***\*\***\_\_\_\_**\*\***\*\***\*\***
 | |
 initialization | state = { activeIndex = null } | useState(null)
 | |
@@ -208,3 +208,33 @@ Rules of Reducers
 Reducer musi zwrócić dowolną wartosć z wyjątkiem undefined
 
 cd
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
+
+Events + State Design Process
+
+## What state event handlers are there?
+
+1. List out what a user will do and changes they will see while using your app
+2. Categorize each step as 'state' od 'event handler'
+3. Group common steps. Remove duplicates. Rewrite descriptions
+
+## What name and type?
+
+4. Look at mockup. Remove or simplify parts that aren't changing
+5. Replace remaining elements with text descriptions
+6. Repeat #4 and #5 with a diffrent veriation
+7. Imagine you have to write a function that return the text of steps #5 and #6. in addition to your component props, what other arguments would you need?
+
+##
+
+8. xxxxxxxxxxx
+
+# How would a user describe using this app step by step?
+
+...
+
+Konwencja nazewnictwo propsów i event handlerów używanych przy elementach formularza
+
+state - value
+setter - onChange

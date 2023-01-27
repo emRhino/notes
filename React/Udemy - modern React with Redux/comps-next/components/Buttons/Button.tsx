@@ -11,6 +11,7 @@ export interface ButtonProps {
   round?: boolean;
   children?: React.ReactNode;
   onClick?: any;
+  className?: string;
 }
 
 type Test = <ButtonProps>;
@@ -26,22 +27,21 @@ const Button: React.FC<ButtonProps> = ({
   round,
   ...rest
 }) => {
-  console.log(children);
-  const finalClassName = classnames("flex items-center px-3 py-1.5 border", {
-    "border-blue-600 bg-blue-500 text-white": primary,
-    "border-gray-600 bg-gray-500 text-white": secondary,
-    "border-green-600 bg-green-800 text-white": success,
-    "border-red-600 bg-red-800 text-white": danger,
-    "border-yellow-600 bg-yellow-800 text-white": warning,
-    "bg-transparent text-black border-2": outline,
-    "rounded-full": round,
-  });
-
-  return (
-    <button {...rest} className={finalClassName}>
-      {children}
-    </button>
+  const finalClassName = classnames(
+    rest.className,
+    "flex items-center px-3 py-1.5 border",
+    {
+      "border-blue-600 bg-blue-500 text-white": primary,
+      "border-gray-600 bg-gray-500 text-white": secondary,
+      "border-green-600 bg-green-800 text-white": success,
+      "border-red-600 bg-red-800 text-white": danger,
+      "border-yellow-600 bg-yellow-800 text-white": warning,
+      "bg-transparent text-black border-2": outline,
+      "rounded-full": round,
+    }
   );
+
+  return <button className={finalClassName}>{children}</button>;
 };
 
 // Button.propTypes = {
