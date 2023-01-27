@@ -13,6 +13,8 @@ export interface ButtonProps {
   onClick?: any;
 }
 
+type Test = <ButtonProps>;
+
 const Button: React.FC<ButtonProps> = ({
   children,
   primary,
