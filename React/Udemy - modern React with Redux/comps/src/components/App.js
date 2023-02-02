@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Button from "./Button";
+import PopupPage from "./PopupPage";
 
 const router = createBrowserRouter([
   {
@@ -10,24 +11,27 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div>
+    <>
       <div>
-        <Button primary rounded>
-          Hi there 1
-        </Button>
+        <div>
+          <Button primary rounded>
+            Hi there 1
+          </Button>
+        </div>
+        <div>
+          <Button rounded>Hi there 2</Button>
+        </div>
+        <div>
+          <Button outline>Hi there 3</Button>
+        </div>
+        <div>
+          <Button success outline>
+            Hi there 4
+          </Button>
+        </div>
       </div>
-      <div>
-        <Button rounded>Hi there 2</Button>
-      </div>
-      <div>
-        <Button outline>Hi there 3</Button>
-      </div>
-      <div>
-        <Button success outline>
-          Hi there 4
-        </Button>
-      </div>
-    </div>
+      <PopupPage />
+    </>
   );
 }
 
