@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Button from "./Button";
 import PopupPage from "./PopupPage";
+import TablePage from "./TablePage";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ function App() {
         </div>
       </div>
       <PopupPage />
+      <TablePage />
     </>
   );
 }

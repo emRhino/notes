@@ -8,8 +8,15 @@ const Popup = ({ changeState }) => {
   };
 
   const popupWrapper = (
-    <div onClick={handleClosePopup} class="wrapper">
-      <button onClick={handleClosePopup}>Close</button>
+    <div class="wrapper">
+      <div>
+        <button onClick={handleClosePopup}>Close</button>
+        <div>Coś tam coś tam</div>
+      </div>
+      <div
+        onClick={handleClosePopup}
+        style={{ height: "50px", backgroundColor: "red" }}
+      ></div>
     </div>
   );
 
