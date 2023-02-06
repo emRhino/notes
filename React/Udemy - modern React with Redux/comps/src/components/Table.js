@@ -1,21 +1,28 @@
-const Table = ({ data }) => {
-  const tableRows = data.map((row) => {
-    return (
-      <tr key={row.index}>
-        <td>{row.label}</td>
-        <td>{row.color}</td>
-        <td>{row.index}</td>
-      </tr>
-    );
+import { Fragment } from "react";
+
+const Table = ({ rows, columns }) => {
+  const renderHeader = columns.map((column) => {
+    if (column.header) {
+      return <Fragment key={column.label}>{column.header()}</Fragment>;
+    }
+
+    return <th key={column.label}>{column.label}</th>;
   });
+
+  const tableRows = rows.map((row) => {
+    const tableCells = columns.map((column) => {
+      return <td key={column.label}>{column.render(row)}</td>;
+    });
+
+    return <tr key={row.index}>{tableCells}</tr>;
+  });
+
   return (
     <table>
-      <tr>
-        <th>Name</th>
-        <th>Color</th>
-        <th>Index</th>
-      </tr>
-      {tableRows}
+      <thead>
+        <tr>{renderHeader}</tr>
+      </thead>
+      <tbody>{tableRows}</tbody>
     </table>
   );
 };

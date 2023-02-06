@@ -28,10 +28,28 @@ const data = [
   },
 ];
 
-const config = [{}];
+const config = [
+  {
+    label: "Nazwa",
+    render: (fruit) => fruit.label,
+  },
+  {
+    label: "Kolor",
+    render: (fruit) => fruit.color,
+  },
+  {
+    label: "index",
+    render: (fruit) => fruit.index,
+    header: () => (
+      <th className="with-arrows">
+        <button>asd</button>
+      </th>
+    ),
+  },
+];
 
 const TablePage = () => {
-  return <Table data={data} />;
+  return <Table rows={data} columns={config} />;
 };
 
 export default TablePage;
