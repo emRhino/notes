@@ -1,4 +1,5 @@
 import Table from "./Table";
+import SortableTable from "./SortableTable";
 
 const data = [
   {
@@ -32,6 +33,7 @@ const config = [
   {
     label: "Nazwa",
     render: (fruit) => fruit.label,
+    sortValue: (fruit) => fruit.label,
   },
   {
     label: "Kolor",
@@ -40,16 +42,12 @@ const config = [
   {
     label: "index",
     render: (fruit) => fruit.index,
-    header: () => (
-      <th className="with-arrows">
-        <button>asd</button>
-      </th>
-    ),
+    sortValue: (fruit) => fruit.index,
   },
 ];
 
 const TablePage = () => {
-  return <Table rows={data} columns={config} />;
+  return <SortableTable rows={data} columns={config} />;
 };
 
 export default TablePage;
